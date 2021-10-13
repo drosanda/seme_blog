@@ -1,0 +1,26 @@
+{
+  "script":
+  [
+    {
+      "src": "{{cdn_url}}skin/front/js/nprogress.js"
+    },
+    {
+      "src": "{{cdn_url}}skin/front/js/moment.min.js"
+    },
+    {
+      "src": "{{cdn_url}}skin/front/js/moment-with-locales.min.js"
+    },
+    {
+      "src": "{{cdn_url}}skin/front/js/jquery-3.3.1.min.js"
+    },
+    {
+      "src": "{{cdn_url}}skin/front/js/jquery.gritter.min.js"
+    },
+    {
+      "src": "{{cdn_url}}skin/front/js/bootstrap-datepicker.min.js"
+    },
+    {
+      "src": "{{cdn_url}}skin/front/js/bootstrap.bundle.min.js"
+    }
+  ]
+}

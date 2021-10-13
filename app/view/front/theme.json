@@ -1,0 +1,29 @@
+{
+  "link":
+  [
+    {
+      "rel": "stylesheet",
+      "href": "{{cdn_url}}skin/front/css/nprogress.css"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "{{cdn_url}}skin/front/css/font-awesome.min.css"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "{{cdn_url}}skin/front/css/jquery.gritter.css"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "{{cdn_url}}skin/front/css/bootstrap-datepicker3.min.css"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "{{cdn_url}}skin/front/css/bootstrap.min.css"
+    },
+    {
+      "rel": "stylesheet",
+      "href": "{{cdn_url}}skin/front/css/app.css?v=1.2.4"
+    }
+  ]
+}
