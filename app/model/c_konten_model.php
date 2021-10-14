@@ -223,4 +223,11 @@ class C_Konten_Model extends SENE_Model{
 		$this->db->where_as("$this->tbl_as.c_konten_id",$id);
 		return $this->db->get();
 	}
+	public function getByKategoriId($b_kategori_id){
+		$this->db->from($this->tbl,$this->tbl_as);
+		$this->db->where("b_kategori_id",$b_kategori_id);
+		$this->db->order_by('id','desc');
+		$this->db->where_as("$this->tbl_as.c_konten_id",'IS NULL');
+		return $this->db->get();
+	}
 }

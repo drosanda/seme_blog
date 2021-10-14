@@ -136,23 +136,6 @@ class B_Kategori_Model extends SENE_Model{
 		if(isset($d->jumlah)) return $d->jumlah;
 		return 0;
 	}
-	public function getKategori(){
-		$this->db->select("id")
-						 ->select("utype")
-						 ->select("nama")
-						 ->select("slug")
-						 ->select("is_active")
-						 ->select("is_visible")
-						 ->select_as("COALESCE(b_kategori_id,'-')",'b_kategori_id',0);
-		$this->db->from($this->tbl,$this->tbl_as);
-		$this->db->where("is_active",'1');
-		$this->db->where("utype",'kategori',"OR","like",1,0);
-		$this->db->where("utype",'kategori_sub',"OR","like",0,0);
-		$this->db->where("utype",'kategori_sub_sub',"OR","like",0,1);
-		$this->db->order_by("utype","asc");
-		$this->db->limit(100);
-		return $this->db->get('object',0);
-	}
 	public function getParentKategori(){
 		$this->db->select()->from($this->tbl,$this->tbl_as)->where_as("b_kategori_id", "is null");
 		$this->db->where("utype",'kategori',"OR","like",1,0);
@@ -214,6 +197,10 @@ class B_Kategori_Model extends SENE_Model{
 		$this->db->join($this->tbl2,$this->tbl2_as,'b_kategori_id',$this->tbl_as,'id','');
 		$this->db->where("$this->tbl2_as.c_konten_id",'IS NULL');
 		$this->db->group_by("$this->tbl_as.id");
+		return $this->db->get();
+	}
+	public function getKategori(){
+		$this->db->where('jenis','kategori');
 		return $this->db->get();
 	}
 }

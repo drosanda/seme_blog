@@ -1,17 +1,14 @@
 <?php
 
-class Home extends SENE_Controller
+class Home extends JI_Controller
 {
     public function __construct()
     {
         parent::__construct();
-        $this->load('b_kategori_model','bkm');
-        $this->load('b_user_model','bum');
-        $this->load('c_konten_model','ckm');
     }
     public function index()
     {
-      $data = array();
+      $data = $this->__init();
 
       $data['kategori_list'] = $this->bkm->getOneArticleByKategori();
       $data['artikel_terbaru'] = $this->ckm->getLatest();
@@ -27,7 +24,7 @@ class Home extends SENE_Controller
     }
     public function detail($id)
     {
-      $data = array();
+      $data = $this->__init();
 
       $data['ckm'] = $this->ckm->getById($id);
       if(!isset($data['ckm']->id)){
