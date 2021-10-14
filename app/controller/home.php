@@ -16,7 +16,7 @@ class Home extends SENE_Controller
       $data['kategori_list'] = $this->bkm->getOneArticleByKategori();
       $data['artikel_terbaru'] = $this->ckm->getLatest();
 
-      $this->setTitle('Typography BS5');
+      $this->setTitle('Welcome to my blog');
       $this->setDescription("Typography BS5 from Seme Framework.");
       $this->setKeyword('Seme Framework');
       $this->setAuthor('Seme Framework');
