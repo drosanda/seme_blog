@@ -209,6 +209,7 @@ class C_Konten_Model extends SENE_Model{
 		return $this->db->get_first();
 	}
 	public function getLatest(){
+		$this->db->from($this->tbl,$this->tbl_as);
 		$this->db->order_by('id','desc');
 		$this->db->limit(0,5);
 		$this->db->where_as("$this->tbl_as.c_konten_id",'IS NULL');

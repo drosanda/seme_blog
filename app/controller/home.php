@@ -43,6 +43,7 @@ class Home extends SENE_Controller
       $data['ckm']->tahun = $this->bkm->getById($data['ckm']->b_kategori_id_tahun);
       $data['ckm']->penulis = $this->bum->getById($data['ckm']->b_user_id);
       $data['ckm']->komentar = $this->ckm->getKomentarById($id);
+      $data['artikel_lain'] = $this->ckm->getLatest();
 
       $this->setTitle($data['ckm']->judul);
       $this->setDescription("Typography BS5 from Seme Framework.");

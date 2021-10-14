@@ -115,6 +115,7 @@ $semevar['fcm']->messagingSenderId = '';
 $semevar['fcm']->appId = '';
 
 // example
+$semevar['company_name'] = 'Seme Framework';
 $semevar['site_name'] = 'Seme Framework';
 $semevar['email_from'] = 'noreply@thecloudalert.com';
 $semevar['email_reply'] = 'hi@thecloudalert.com';
