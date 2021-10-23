@@ -193,6 +193,7 @@ class B_Kategori_Model extends SENE_Model{
 		$this->db->select_as("$this->tbl_as.*, $this->tbl_as.id",'id');
 		$this->db->select_as("$this->tbl2_as.id",'c_konten_id');
 		$this->db->select_as("$this->tbl2_as.isi",'isi');
+		$this->db->select_as("$this->tbl2_as.gambar",'gambar');
 		$this->db->from($this->tbl,$this->tbl_as);
 		$this->db->join($this->tbl2,$this->tbl2_as,'b_kategori_id',$this->tbl_as,'id','');
 		$this->db->where("$this->tbl2_as.c_konten_id",'IS NULL');

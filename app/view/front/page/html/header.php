@@ -9,9 +9,6 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="<?=base_url()?>">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Kategori
@@ -22,12 +19,16 @@
           <?php } } ?>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
+        <?php if(isset($sess->user->id)){ ?>
+        <li class="nav-item"><a href="<?=base_url('dashboard')?>" class="nav-link" >Dashboard</a></li>
+        <li class="nav-item"><a href="<?=base_url('logout')?>" class="nav-link" >Logout</a></li>
+        <?php } else { ?>
+        <li class="nav-item"><a href="<?=base_url('login')?>" class="nav-link" >Login</a></li>
+        <li class="nav-item"><a href="<?=base_url('register')?>" class="nav-link" >Register</a></li>
+        <?php } ?>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <form action="<?=base_url('search/result/')?>" method="get" class="d-flex">
+        <input name="keyword" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>

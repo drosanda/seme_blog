@@ -1,3 +1,10 @@
+*, body {
+  font-family: 'Roboto', sans-serif !important;
+}
+h1, h2, h3, h4, h5, h6, h7 {
+  font-family: 'Quicksand', sans-serif !important;
+}
+
 /*richtext std */
 .std h1 {
   font-size: 2.4em;
@@ -26,3 +33,10 @@
   height: auto;
 }
 /* end richtext std */
+
+.btn.btn-primary {
+  background-color: #CD8B76;
+}
+.btn.btn-primary:hover {
+  background-color: #E1D89F;
+}

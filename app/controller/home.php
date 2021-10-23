@@ -10,6 +10,7 @@ class Home extends JI_Controller
     {
       $data = $this->__init();
 
+      $data['sess'] = $this->getKey();
       $data['kategori_list'] = $this->bkm->getOneArticleByKategori();
       $data['artikel_terbaru'] = $this->ckm->getLatest();
 
@@ -25,6 +26,7 @@ class Home extends JI_Controller
     public function detail($id)
     {
       $data = $this->__init();
+      $data['sess'] = $this->getKey();
 
       $data['ckm'] = $this->ckm->getById($id);
       if(!isset($data['ckm']->id)){

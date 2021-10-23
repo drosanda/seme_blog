@@ -1,7 +1,13 @@
+<style>
+  .judul-kategori {
+    font-size: 4em;
+    border-bottom: 3px #C45BAA dashed;
+  }
+</style>
 <div class="container">
   <div class="row mt-2 mb-2">
     <div class="col-12">
-      <h2>Kategori <?=$kategori->nama?></h2>
+      <h1 class="judul-kategori">Kategori <?=$kategori->nama?></h1>
     </div>
   </div>
   <div class="row">

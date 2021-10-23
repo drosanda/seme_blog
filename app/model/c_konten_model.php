@@ -230,4 +230,9 @@ class C_Konten_Model extends SENE_Model{
 		$this->db->where_as("$this->tbl_as.c_konten_id",'IS NULL');
 		return $this->db->get();
 	}
+	public function getSearch($keyword){
+		$this->db->where_as('judul',$keyword,'OR','%like%');
+		$this->db->where_as('isi',$keyword,'OR','%like%');
+		return $this->db->get();
+	}
 }

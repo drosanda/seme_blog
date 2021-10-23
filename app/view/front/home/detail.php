@@ -17,6 +17,7 @@
   </div>
   <div class="row">
     <div class="col-9">
+      <img src="<?=$ckm->gambar?>" class="img-fluid" />
       <div class="std">
         <?=$ckm->isi?>
       </div>
@@ -45,6 +46,18 @@
         <?php } ?>
       <?php }else{ ?>
         <p>Belum ada komentar</p>
+      <?php } ?>
+
+      <?php if(isset($sess->user->id)){ ?>
+      <form action="<?=base_url('komentar/proses')?>" method="post">
+        <input type="hidden" name="c_konten_id" value="<?=$ckm->id?>">
+        <label for="iisi">Komentar</label>
+        <textarea id="iisi" name="isi" class="form-control" required></textarea>
+        <br>
+        <button class="btn btn-primary">Tambahkan komentar</button>
+      </form>
+      <?php }else{ ?>
+
       <?php } ?>
 
     </div>
