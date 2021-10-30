@@ -1,8 +1,11 @@
 *, body {
-  font-family: 'Roboto', sans-serif !important;
+  font-family: 'Roboto', sans-serif ;
 }
 h1, h2, h3, h4, h5, h6, h7 {
-  font-family: 'Quicksand', sans-serif !important;
+  font-family: 'Quicksand', sans-serif;
+}
+i.fa {
+  font-family: FontAwesome;
 }
 
 /*richtext std */

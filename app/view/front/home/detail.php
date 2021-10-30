@@ -17,6 +17,8 @@
 
 
   </div>
+
+  <?php if(isset($sess->user->id)){ ?>
   <div class="row mb-3">
     <div class="col-12">
       <div class="btn-group" role="group" aria-label="Basic example">
@@ -25,6 +27,9 @@
       </div>
     </div>
   </div>
+  <?php } ?>
+
+
   <div class="row">
     <div class="col-9">
       <img src="<?=$ckm->gambar?>" class="img-fluid" />
