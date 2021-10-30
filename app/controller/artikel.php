@@ -44,7 +44,7 @@ class Artikel extends JI_Controller
       return;
     }
 
-    if(strlen($judul)<=4){
+    if(strlen($judul)<=1){
       echo 'Invalid judul';
       return;
     }
@@ -62,6 +62,34 @@ class Artikel extends JI_Controller
     }else{
       echo 'Password confirmation doesn\'t match';
       return;
+    }
+  }
+  public function hapus($id){
+    //ambil current session
+    $sess = $this->getKey();
+    if(!isset($sess->user->id)){
+      redir(base_url('dashboard/?hapus=error3'));
+      return;
+    }
+
+    //teknik casting
+    // digunakan untuk memaksa tipe data yang digunakan
+    // supaya sama persis dengan castingnya.
+    $id = (int) $id;
+    if($id <= 0) $id=0;
+
+    // cek data
+    $ckm = $this->ckm->getById($id);
+    if(!isset($ckm->id)){
+      redir(base_url('dashboard/?hapus=error1'));
+      return;
+    }
+
+    $res = $this->ckm->del($id);
+    if($res){
+      redir(base_url('dashboard/?hapus=sukses'));
+    }else{
+      redir(base_url('dashboard/?hapus=error2'));
     }
   }
 }

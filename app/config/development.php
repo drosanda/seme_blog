@@ -55,7 +55,7 @@ $db['enckey'] = '';
 /* == Session Configuration == */
 /* @var string */
 /****************************/
-$saltkey = 's3mEFr4';
+$saltkey = 'semeblog21';
 
 /********************************/
 /* == Timezone Configuration == */

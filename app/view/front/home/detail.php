@@ -11,8 +11,18 @@
 </style>
 <div class="container">
   <div class="row mt-4">
-    <div class="col-12 mb-4" style="border-bottom: 1px #cccccc dashed">
+    <div class="col-12 mb-1" style="border-bottom: 1px #cccccc dashed">
       <h1 class="artikel-judul"><?=$ckm->judul?></h1>
+    </div>
+
+
+  </div>
+  <div class="row mb-3">
+    <div class="col-12">
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <a href="<?=base_url()?>artikel/edit/<?=$ckm->id?>" class="btn btn-warning">Edit</a>
+        <a href="<?=base_url()?>artikel/hapus/<?=$ckm->id?>" class="btn btn-danger">Hapus</a>
+      </div>
     </div>
   </div>
   <div class="row">
