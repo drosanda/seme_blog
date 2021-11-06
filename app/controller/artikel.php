@@ -1,6 +1,8 @@
 <?php
 class Artikel extends JI_Controller
 {
+  public $pagesize = 12;
+
   public function __construct()
   {
     parent::__construct();
@@ -8,7 +10,42 @@ class Artikel extends JI_Controller
     $this->load('b_user_model','bum');
   }
   public function index(){
+    $data = $this->__init();
+    $data['page'] = 1;
+    $data['pagesize'] = $this->pagesize;
+    $data['artikel_count'] = $this->ckm->countAll();
+    $data['artikel_list'] = $this->ckm->getAll(0,$this->pagesize);
+    $data['pagetotal'] = ceil($data['artikel_count']/$this->pagesize);
 
+    $this->setTitle('List artikel');
+    $this->setDescription("List artikel");
+    $this->setKeyword('Seme Framework');
+    $this->setAuthor('Seme Framework');
+
+    $this->putThemeContent("artikel/home",$data);
+    $this->loadLayout("col-1",$data);
+    $this->render();
+  }
+  public function page($page=''){
+    $data = $this->__init();
+
+    $page = (int) $page;
+    if($page<=1) $page = 1;
+
+    $data['page'] = $page;
+    $data['pagesize'] = $this->pagesize;
+    $data['artikel_count'] = (int) $this->ckm->countAll();
+    $data['artikel_list'] = $this->ckm->getAll($page,$this->pagesize);
+    $data['pagetotal'] = ceil($data['artikel_count']/$this->pagesize);
+
+    $this->setTitle('List artikel');
+    $this->setDescription("List artikel");
+    $this->setKeyword('Seme Framework');
+    $this->setAuthor('Seme Framework');
+
+    $this->putThemeContent("artikel/home",$data);
+    $this->loadLayout("col-1",$data);
+    $this->render();
   }
 
   public function baru()

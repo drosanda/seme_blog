@@ -17,35 +17,31 @@ class C_Konten_Model extends SENE_Model{
 	public function getTableAlias2(){
 		return $this->tbl2_as;
 	}
-	public function getAll($page=0,$pagesize=10,$sortCol="sku",$sortDir="ASC",$keyword='',$sdate='',$edate=''){
+	public function getAll($page=0,$pagesize=10,$sortCol="id",$sortDir="desc",$keyword='',$sdate='',$edate=''){
 		$this->db->flushQuery();
 		$this->db->select('id');
-		$this->db->select('kode');
-		$this->db->select('utype');
-		$this->db->select('nama');
-		$this->db->select('buffer_stok');
-		$this->db->select('is_visible');
-		$this->db->select('is_active');
+		$this->db->select('judul');
+		$this->db->select('gambar');
+		$this->db->select('isi');
 		$this->db->from($this->tbl,$this->tbl_as);
+		$this->db->where_as("$this->tbl_as.c_konten_id",'IS NULL');
 		if(strlen($keyword)>1){
-			$this->db->where("utype",$keyword,"OR","%like%",1,0);
-			$this->db->where("kode",$keyword,"OR","%like%",0,0);
-			$this->db->where("nama",$keyword,"OR","%like%",0,0);
-			$this->db->where("deskripsi",$keyword,"OR","%like%",0,1);
+			$this->db->where("judul",$keyword,"OR","%like%",1,0);
+			$this->db->where("isi",$keyword,"OR","%like%",0,1);
 		}
-		$this->db->order_by($sortCol,$sortDir)->limit($page,$pagesize);
+		$this->db->order_by($sortCol,$sortDir)->page($page,$pagesize);
 		return $this->db->get("object",0);
 	}
 	public function countAll($keyword='',$sdate='',$edate=''){
 		$this->db->flushQuery();
 		$this->db->select_as("COUNT(*)","jumlah",0);
+		$this->db->from($this->tbl,$this->tbl_as);
+		$this->db->where_as("$this->tbl_as.c_konten_id",'IS NULL');
 		if(strlen($keyword)>1){
-			$this->db->where("utype",$keyword,"OR","%like%",1,0);
-			$this->db->where("nama",$keyword,"OR","%like%",0,0);
-			$this->db->where("kode",$keyword,"OR","%like%",0,0);
-			$this->db->where("deskripsi",$keyword,"OR","%like%",0,1);
+			$this->db->where("judul",$keyword,"OR","%like%",1,0);
+			$this->db->where("isi",$keyword,"OR","%like%",0,1);
 		}
-		$d = $this->db->from($this->tbl)->get_first("object",0);
+		$d = $this->db->get_first("object",0);
 		if(isset($d->jumlah)) return $d->jumlah;
 		return 0;
 	}
